@@ -34,18 +34,22 @@
 
     <module name="TreeWalker">
 
-        <!-- region Skip check keyword -->
+        <!-- 跳过所有不需要检查的项 -->
         <module name="SuppressionCommentFilter">
-            <property name="offCommentFormat" value="CSOFF"/>
-            <property name="onCommentFormat" value="CSON"/>
+            <!-- 关闭所有的检查项 -->
+            <property name="offCommentFormat" value="CSOFF: ALMOST_ALL"/>
+            <!-- 重新开启所有的检查项 -->
+            <property name="onCommentFormat" value="CSON: ALMOST_ALL"/>
+            <property name="checkFormat" value="^((?!(EqualsHashCode)).)*$"/>
         </module>
 
+        <!-- 跳过指定的不需要检查的项 -->
         <module name="SuppressionCommentFilter">
             <property name="offCommentFormat" value="CSOFF\: ([\w\|]+)"/>
             <property name="onCommentFormat" value="CSON\: ([\w\|]+)"/>
             <property name="checkFormat" value="$1"/>
         </module>
-        
+
         <!-- endregion -->
 
 
@@ -120,14 +124,14 @@
 
         <!-- 检查空代码块，See：http://checkstyle.sourceforge.net/config_blocks.html#EmptyBlock -->
         <module name="EmptyBlock"/>
-        
+
         <!-- 检查左大括号的位置 -->
         <module name="LeftCurly"/>
 
         <!-- NeedBraces 检查是否应该使用括号的地方没有加括号
           tokens: 定义检查的类型 -->
         <module name="NeedBraces"/>
-        
+
         <!-- 部分右大括号不允许单独一行显示，根据 tokens 定义 -->
         <module name="RightCurly">
             <property name="id" value="RightCurlySame"/>
@@ -148,7 +152,7 @@
         <module name="EmptyCatchBlock">
             <property name="exceptionVariableName" value="expected"/>
         </module>
-        
+
         <!-- endregion -->
 
 
@@ -160,7 +164,7 @@
             <message key="name.invalidPattern"
                      value="包名 ''{0}'' 必须匹配模式 ''{1}''."/>
         </module>
-        
+
         <!-- 检查类，接口，枚举和注解的名称规范 -->
         <module name="TypeName">
             <property name="format" value="(^[A-Z][a-zA-Z0-9]{0,30}$)"/>
@@ -195,7 +199,7 @@
             <message key="name.invalidPattern"
                      value="参数名称 ''{0}'' 必须匹配模式 ''{1}''."/>
         </module>
-        
+
         <module name="ClassTypeParameterName">
             <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
             <message key="name.invalidPattern"
@@ -227,14 +231,14 @@
             <message key="name.invalidPattern"
                      value="异常参数 ''{0}'' 必须匹配模式 ''{1}''."/>
         </module>
-        
+
         <!-- 命名缩写允许的连续大写字母长度 -->
         <!-- See: http://checkstyle.sourceforge.net/config_naming.html#AbbreviationAsWordInName -->
         <module name="AbbreviationAsWordInName">
             <property name="ignoreFinal" value="false"/>
             <property name="allowedAbbreviationLength" value="1"/>
         </module>
-        
+
         <!-- endregion -->
 
 
@@ -245,13 +249,13 @@
 
         <!-- 检查是否从非法的包中导入了类 illegalPkgs: 定义非法的包名称-->
         <module name="IllegalImport"/> <!-- defaults to sun.* packages -->
-        
+
         <!-- 检查是否导入了不必显示导入的类-->
         <module name="RedundantImport"/>
 
         <!-- 检查是否导入的包没有使用-->
         <module name="UnusedImports"/>
-        
+
         <!-- 检查包导入的顺序 -->
         <!-- See: http://checkstyle.sourceforge.net/config_imports.html#CustomImportOrder -->
         <module name="CustomImportOrder">
@@ -259,7 +263,7 @@
             <property name="separateLineBetweenGroups" value="true"/>
             <property name="customImportOrderRules" value="STATIC###THIRD_PARTY_PACKAGE"/>
         </module>
-        
+
         <!-- endregion -->
 
 
@@ -268,7 +272,7 @@
         <!-- 只允许存在一个顶级类 -->
         <!-- See: http://checkstyle.sourceforge.net/config_design.html#OneTopLevelClass -->
         <module name="OneTopLevelClass"/>
-        
+
         <!-- 检查一个只有私有构造器的类是否被声明为 final -->
         <!-- See: http://checkstyle.sourceforge.net/config_design.html#FinalClass -->
         <module name="FinalClass"/>
@@ -316,7 +320,7 @@
         <!-- 限制语句是否可以换行，默认 tokens: PACKAGE_DEF, IMPORT, STATIC_IMPORT. -->
         <!-- See: http://checkstyle.sourceforge.net/config_whitespace.html#NoLineWrap -->
         <module name="NoLineWrap"/>
-        
+
         <!-- 规范关键字前后的空格格式 -->
         <module name="WhitespaceAround">
             <property name="allowEmptyConstructors" value="true"/>
@@ -338,11 +342,11 @@
             <message key="ws.notPreceded"
                      value="GenericWhitespace ''{0}'' is not preceded with whitespace."/>
         </module>
-        
+
         <!-- 检查方法参数填充符 -->
         <!-- See: http://checkstyle.sourceforge.net/config_whitespace.html#MethodParamPad -->
         <module name="MethodParamPad"/>
-        
+
         <!-- 检查指定标记之前没有空格 -->
         <!-- See: http://checkstyle.sourceforge.net/config_whitespace.html#NoWhitespaceBefore -->
         <module name="NoWhitespaceBefore">
@@ -354,18 +358,18 @@
         <!-- 检查小括号的填充规则，即左括号后和右括号前都不允许有空格 -->
         <!-- See: http://checkstyle.sourceforge.net/config_whitespace.html#ParenPad -->
         <module name="ParenPad"/>
-        
+
         <!-- 运算符换行，代码自动换行时运算符所在的位置，NL 必须在新行中，EOL 必须在当前行末尾 -->
         <!-- See: http://checkstyle.sourceforge.net/config_whitespace.html#OperatorWrap -->
         <module name="OperatorWrap">
             <property name="option" value="NL"/>
             <property name="tokens"
-                      value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, 
-                      LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, 
+                      value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE,
+                      LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS,
                       QUESTION, SL, SR, STAR, METHOD_REF "/>
         </module>
-        
-        <!-- 部分语句需要空行分隔，tokens 默认值：PACKAGE_DEF, IMPORT, CLASS_DEF, INTERFACE_DEF, 
+
+        <!-- 部分语句需要空行分隔，tokens 默认值：PACKAGE_DEF, IMPORT, CLASS_DEF, INTERFACE_DEF,
             ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF -->
         <!-- See：http://checkstyle.sourceforge.net/config_whitespace.html#EmptyLineSeparator -->
         <module name="EmptyLineSeparator">
@@ -421,7 +425,7 @@
 
 
         <!-- region Modifier -->
-        <!-- ModifierOrder 检查修饰符的顺序，默认是 
+        <!-- ModifierOrder 检查修饰符的顺序，默认是
         public,protected,private,abstract,static,final,transient,volatile,synchronized,native -->
         <module name="ModifierOrder"/>
 
