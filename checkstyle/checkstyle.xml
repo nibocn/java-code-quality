@@ -8,42 +8,38 @@
     <property name="severity" value="warning"/>
 
     <!-- 检查文件的长度（行） default max=2000 -->
-    <module name="FileLength">
-        <property name="max" value="2500"/>
-    </module>
+    <!--<module name="FileLength">-->
+        <!--<property name="max" value="1000"/>-->
+    <!--</module>-->
 
     <!-- 使用 System.out.println 等进行打印操作 -->
-    <module name="RegexpMultiline">
-        <property name="format" value="System\.(out)|(err)\.print(ln)?\("/>
-        <property name="message" value="不能使用 print 或 println 进行打印!"/>
-    </module>
+    <!--<module name="RegexpMultiline">-->
+        <!--<property name="format" value="System\.(out)|(err)\.print(ln)?\("/>-->
+        <!--<property name="message" value="不能使用 print 或 println 进行打印!"/>-->
+    <!--</module>-->
 
     <!-- 异常等信息直接使用 printStackTrace 进行打印 -->
-    <module name="RegexpMultiline">
-        <property name="severity" value="error"/>
-        <property name="format" value="printStackTrace?\("/>
-        <property name="message" value="异常信息不能使用 printStackTrace 直接打印输出"/>
-    </module>
+    <!--<module name="RegexpMultiline">-->
+        <!--&lt;!&ndash;<property name="severity" value="error"/>&ndash;&gt;-->
+        <!--<property name="format" value="printStackTrace?\("/>-->
+        <!--<property name="message" value="异常信息不能使用 printStackTrace 直接打印输出"/>-->
+    <!--</module>-->
 
     <!-- 不允许使用 TAB 缩进 -->
     <module name="FileTabCharacter">
-        <property name="severity" value="error"/>
+        <!--<property name="severity" value="error"/>-->
         <property name="eachLine" value="true"/>
         <message key="containsTab" value="本行包含 TAB 字符"/>
     </module>
 
     <module name="TreeWalker">
 
-        <!-- 跳过所有不需要检查的项 -->
+        <!-- region Skip check keyword -->
         <module name="SuppressionCommentFilter">
-            <!-- 关闭所有的检查项 -->
-            <property name="offCommentFormat" value="CSOFF: ALMOST_ALL"/>
-            <!-- 重新开启所有的检查项 -->
-            <property name="onCommentFormat" value="CSON: ALMOST_ALL"/>
-            <property name="checkFormat" value="^((?!(EqualsHashCode)).)*$"/>
+            <property name="offCommentFormat" value="CSOFF"/>
+            <property name="onCommentFormat" value="CSON"/>
         </module>
 
-        <!-- 跳过指定的不需要检查的项 -->
         <module name="SuppressionCommentFilter">
             <property name="offCommentFormat" value="CSOFF\: ([\w\|]+)"/>
             <property name="onCommentFormat" value="CSON\: ([\w\|]+)"/>
@@ -167,14 +163,14 @@
 
         <!-- 检查类，接口，枚举和注解的名称规范 -->
         <module name="TypeName">
-            <property name="format" value="(^[A-Z][a-zA-Z0-9]{0,60}$)"/>
+            <property name="format" value="(^[A-Z][a-zA-Z0-9]{0,30}$)"/>
             <message key="name.invalidPattern"
                      value="类型名称 ''{0}'' 必须匹配模式 ''{1}''."/>
         </module>
 
         <!-- methods -->
         <module name="MethodName">
-            <property name="format" value="(^[a-z][a-zA-Z0-9]{0,35}$)"/>
+            <property name="format" value="(^[a-z][a-zA-Z0-9]{0,29}$)"/>
         </module>
 
         <!-- static, non-final fields -->
