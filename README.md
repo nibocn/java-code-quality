@@ -15,3 +15,9 @@
 Google Checkstyle: https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml
 
 华为 Checkstyle: https://gist.github.com/ownwell/c32878440216f1866842
+
+## PMD
+根据 PMD 官方 6.0.0 版本整理 https://pmd.github.io/pmd-6.0.0/pmd_rules_java.html
+
+- `pmd-ruleset.xml` 可兼容 IDEA 插件 PMDPlugin v1.8.3 版本。
+- `pmd-ruleset-supplement.xml` 为根据 PMD 官方 6.0.0 版本扩展的规则，在 PMDPlugin 中暂时不能支持（应该是 PMDPlugin 插件使用的 PMD 包的版本关系），但可通过 Maven 添加（在 Maven 中可以自定 PMD 包的版本）。
