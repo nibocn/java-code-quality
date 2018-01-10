@@ -36,8 +36,9 @@
 
         <!-- region Skip check keyword -->
         <module name="SuppressionCommentFilter">
-            <property name="offCommentFormat" value="CSOFF"/>
-            <property name="onCommentFormat" value="CSON"/>
+            <property name="offCommentFormat" value="CSOFF: ALMOST_ALL"/>
+            <property name="onCommentFormat" value="CSON: ALMOST_ALL"/>
+            <property name="checkFormat" value="^((?!(FileTabCharacterCheck)).)*$"/>
         </module>
 
         <module name="SuppressionCommentFilter">
