@@ -275,11 +275,13 @@
 
         <!-- 检查一个只有私有构造器的类是否被声明为 final -->
         <!-- See: http://checkstyle.sourceforge.net/config_design.html#FinalClass -->
-        <module name="FinalClass"/>
+        <!-- 使用 PMD 的规则 ClassWithOnlyPrivateConstructorsShouldBeFinal -->
+        <!-- <module name="FinalClass"/> -->
 
         <!-- 确保工具类（在 API 中只有静态方法和字段的类）没有任何公有构造器 -->
         <!-- See: http://checkstyle.sourceforge.net/config_design.html#HideUtilityClassConstructor -->
-        <module name="HideUtilityClassConstructor"/>
+        <!-- 使用 PMD 的规则 UseUtilityClass -->
+        <!-- <module name="HideUtilityClassConstructor"/> -->
 
         <!-- 检查类成员属性可见性，只有 static final 修饰的成员可以是公有的，其他的成员属性必需是private的 -->
         <!-- See: http://checkstyle.sourceforge.net/config_design.html#VisibilityModifier -->
