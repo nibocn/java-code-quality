@@ -1,4 +1,15 @@
 <a name=""></a>
+# [](https://github.com/nibocn/java-code-quality/compare/v0.0.1...v) (2018-04-04)
+
+
+### Features
+
+* **checkstyle:** 调整类名和方法名长度限制 ([e25b0d7](https://github.com/nibocn/java-code-quality/commit/e25b0d7))
+* **kotlin:** Kotlin code style settings ([8f1f432](https://github.com/nibocn/java-code-quality/commit/8f1f432))
+
+
+
+<a name=""></a>
 #  (2018-03-19)
 
 
