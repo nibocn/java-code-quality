@@ -32,6 +32,12 @@
         <message key="containsTab" value="本行包含 TAB 字符"/>
     </module>
 
+    <!-- 在 Maven、Gradle 项目中使用 Suppressions.xml 文件时的相对路径（基于项目根目录） -->
+    <!--
+    <module name="SuppressionFilter">
+        <property name="file" value="quality/checkstyle/suppressions.xml"/>
+    </module>
+    -->
 
     <!-- region Skip check keyword -->
     <module name="SuppressWithPlainTextCommentFilter">
