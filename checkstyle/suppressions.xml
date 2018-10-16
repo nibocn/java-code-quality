@@ -6,4 +6,5 @@
 <suppressions>
     <!-- 忽略测试代码 JavadocMethod 检查 -->
     <suppress checks="JavadocMethod" files="src/(test|integTest)/.+"/>
+    <suppress checks="AbbreviationAsWordInName" files=".*DTO\.java"/>
 </suppressions>
