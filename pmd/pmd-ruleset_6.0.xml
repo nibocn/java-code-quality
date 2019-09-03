@@ -472,7 +472,7 @@
     </rule>
 
     <!--<rule ref="rulesets/java/logging-java.xml/InvalidSlf4jMessageFormat"/>-->
-    <rule ref="category/java/errorprone.xml/LoggerIsNotStaticFinal"/>
+    <rule ref="category/java/errorprone.xml/ProperLogger"/>
     <!-- 每个类只使用一个日志记录器 -->
     <rule ref="category/java/errorprone.xml/MoreThanOneLogger"/>
 
@@ -504,9 +504,7 @@
     <rule ref="category/java/multithreading.xml/AvoidSynchronizedAtMethodLevel"/>
     <!-- 非线程安全的单例模式 -->
     <rule ref="category/java/multithreading.xml/NonThreadSafeSingleton"/>
-    <rule ref="category/java/multithreading.xml/UnsynchronizedStaticDateFormatter">
-        <priority>1</priority>
-    </rule>
+    <rule ref="category/java/multithreading.xml/UnsynchronizedStaticFormatter"/>
     <!-- See: https://pmd.github.io/pmd-6.0.0/pmd_rules_java_multithreading.html#usenotifyallinsteadofnotify -->
     <rule ref="category/java/multithreading.xml/UseNotifyAllInsteadOfNotify"/>
 
