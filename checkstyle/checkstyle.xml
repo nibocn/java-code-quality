@@ -34,7 +34,7 @@
 
     <!-- 在 Maven、Gradle 项目中使用 Suppressions.xml 文件时的相对路径（基于项目根目录） -->
     <module name="SuppressionFilter">
-        <property name="file" value="suppressions.xml"/>
+        <property name="file" value="/Users/richard/Documents/Java/java-code-quality/checkstyle/suppressions.xml"/>
     </module>
 
     <!-- region Skip check keyword -->
@@ -49,6 +49,13 @@
         <property name="checkFormat" value="$1"/>
     </module>
     <!-- endregion -->
+
+    <!-- 每行字符数 -->
+    <module name="LineLength">
+        <property name="max" value="100"/>
+        <property name="ignorePattern"
+                  value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+    </module>
 
     <module name="TreeWalker">
 
@@ -295,13 +302,6 @@
 
         <!-- region Sizes -->
 
-        <!-- 每行字符数 -->
-        <module name="LineLength">
-            <property name="max" value="100"/>
-            <property name="ignorePattern"
-                      value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-        </module>
-
         <!-- Checks for long methods and constructors. max default 150行 -->
         <!-- 检查方法长度，最大 60 行 -->
         <module name="MethodLength">
@@ -482,11 +482,7 @@
         <!-- See: http://checkstyle.sourceforge.net/config_javadoc.html#JavadocMethod -->
         <module name="JavadocMethod">
             <property name="scope" value="protected"/>
-            <property name="allowUndeclaredRTE" value="true"/>
-            <property name="allowThrowsTagsForSubclasses" value="true"/>
-            <!--允许get set 方法没有注释-->
-            <property name="allowMissingPropertyJavadoc" value="true"/>
-            <property name="allowedAnnotations" value="Override"/>
+            <property name="allowedAnnotations" value="Override, Test"/>
         </module>
 
         <!-- See: http://checkstyle.sourceforge.net/config_javadoc.html#JavadocMethod -->
