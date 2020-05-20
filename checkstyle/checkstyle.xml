@@ -140,15 +140,14 @@
 
         <!-- 部分右大括号不允许单独一行显示，根据 tokens 定义 -->
         <module name="RightCurly">
-            <property name="id" value="RightCurlySame"/>
+            <property name="option" value="same"/>
             <property name="tokens"
                       value="LITERAL_TRY, LITERAL_CATCH, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_DO"/>
         </module>
 
         <!-- 部分右大括号允许单独一行显示，根据 tokens 定义 -->
         <module name="RightCurly">
-            <property name="id" value="RightCurlyAlone"/>
-            <property name="option" value="alone"/>
+            <property name="option" value="alone_or_singleline"/>
             <property name="tokens"
                       value="CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, STATIC_INIT, INSTANCE_INIT"/>
         </module>
@@ -457,7 +456,9 @@
 
         <!-- 检查 javadoc 后面的标签是否有注释 -->
         <!-- See: http://checkstyle.sourceforge.net/config_javadoc.html#NonEmptyAtclauseDescription -->
-        <module name="NonEmptyAtclauseDescription"/>
+        <module name="NonEmptyAtclauseDescription">
+            <property name="javadocTokens" value="PARAM_LITERAL,RETURN_LITERAL"/>
+        </module>
 
         <!-- See: http://checkstyle.sourceforge.net/config_javadoc.html#JavadocTagContinuationIndentation -->
         <module name="JavadocTagContinuationIndentation"/>
